@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rack'
 gem 'rackup'
+gem 'rake'
 gem 'sinatra'
 gem 'sqlite3'
 gem 'webrick'

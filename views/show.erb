@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= @product['name'] %></title>
+  <link rel="stylesheet" href="/style.css?<%= Time.now.to_i %>">
+</head>
+<body>
+  <header>
+    <h1><%= @product['name'] %></h1>
+    <nav>
+      <a href="/">Hem</a>
+      <% if session[:logged_in] %>
+        <a href="/admin">Admin</a>
+      <% end %>
+    </nav>
+  </header>
+
+  <main>
+    <article class="card single-card">
+      <p><strong>Typ:</strong> <%= @product['category'] %></p>
+      <p><strong>Pris:</strong> <%= @product['price'] %> kr</p>
+      <p><strong>Beskrivning:</strong> <%= @product['description'] %></p>
+    </article>
+  </main>
+</body>
+</html>

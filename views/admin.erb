@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/style.css?<%= Time.now.to_i %>">
+</head>
+<body>
+  <header>
+    <h1>Admin</h1>
+    <nav>
+      <a href="/">Hem</a>
+      <a href="/products/new">Ny produkt</a>
+      <form action="/logout" method="post" class="inline-form">
+        <button type="submit">Logga ut</button>
+      </form>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Hantera produkter</h2>
+    <div class="grid">
+      <% @products.each do |product| %>
+        <article class="card">
+          <h3><%= product['name'] %></h3>
+          <p><%= product['category'] %></p>
+          <p><%= product['price'] %> kr</p>
+          <a class="btn-link" href="/products/<%= product['id'] %>">Visa</a>
+          <form action="/products/<%= product['id'] %>/delete" method="post">
+            <button type="submit">Ta bort</button>
+          </form>
+        </article>
+      <% end %>
+    </div>
+  </main>
+</body>
+</html>

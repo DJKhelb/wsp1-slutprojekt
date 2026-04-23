@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ny produkt</title>
+  <link rel="stylesheet" href="/style.css?<%= Time.now.to_i %>">
+</head>
+<body>
+  <header>
+    <h1>Skapa produkt</h1>
+    <nav>
+      <a href="/">Hem</a>
+      <a href="/admin">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="form-box">
+      <form action="/products" method="post">
+        <input type="text" name="name" placeholder="Produktnamn" required>
+        <input type="text" name="category" placeholder="Kategori" required>
+        <input type="number" name="price" placeholder="Pris" required>
+        <textarea name="description" placeholder="Beskrivning" required></textarea>
+        <button type="submit">Spara</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

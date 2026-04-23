@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logga in</title>
+  <link rel="stylesheet" href="/style.css?<%= Time.now.to_i %>">
+</head>
+<body>
+  <header>
+    <h1>Logga in</h1>
+    <nav><a href="/">Hem</a></nav>
+  </header>
+
+  <main>
+    <section class="form-box">
+      <p><strong>Användarnamn:</strong> admin</p>
+      <p><strong>Lösenord:</strong> 1234</p>
+
+      <% if @error %>
+        <p class="error"><%= @error %></p>
+      <% end %>
+
+      <form action="/login" method="post">
+        <input type="text" name="username" placeholder="Användarnamn" required>
+        <input type="password" name="password" placeholder="Lösenord" required>
+        <button type="submit">Logga in</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
